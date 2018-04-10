@@ -9,6 +9,10 @@
 		font-style:italic;
 		text-decoration:line-through;
 	}
+	span[contenteditable="true"]{
+		background: gray;
+		padding: 4px;
+	}
 </style>
 <body>
 	<div ng-controller="addTaskController">
@@ -17,8 +21,9 @@
 		<div id="taskToShow">
 			<ul >
 				<li ng-repeat="onetask in tasks">
-					<input type="checkbox" ng-model="onetask.status" name="">
-					<span class="{{onetask.status}}">{{ onetask.taskMessage }}</span>
+					<input type="checkbox" ng-model="onetask.status">
+					<span contenteditable="false" ng-dblclick= "edit()" ng-keydown="enterAgain(onetask.taskMessage)"ng-model="onetask.taskMessage" class="{{onetask.status}}">{{ onetask.taskMessage }}</span>
+					<input type="text" hidden>
 				</li>
 			</ul>
 		</div>
