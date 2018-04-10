@@ -3,12 +3,26 @@
 <head>
 	<title>To-Do-List</title>
 </head>
+<style type="text/css">
+	span.true{
+		color:grey;
+		font-style:italic;
+		text-decoration:line-through;
+	}
+</style>
 <body>
-<div ng-controller="addTaskController">
-	<h1 style="text-align: center;">Add a task</h1>
-	<input type="text" name="" style="display:block;margin:0 auto;padding: 5px;font-size: 15px; width: 300px;" ng-keyup="searchEnter()">
-
-</div>
+	<div ng-controller="addTaskController">
+		<h1 style="text-align: center;">Add a task</h1>
+		<input type="text" name="" style="display:block;margin:0 auto;padding: 5px;font-size: 15px; width: 300px;" ng-keyup="searchEnter()" ng-model="task">
+		<div id="taskToShow">
+			<ul >
+				<li ng-repeat="onetask in tasks">
+					<input type="checkbox" ng-model="onetask.status" name="">
+					<span class="{{onetask.status}}">{{ onetask.taskMessage }}</span>
+				</li>
+			</ul>
+		</div>
+	</div> 
 </body>
 
 <script type="text/javascript" src="https://code.angularjs.org/1.5.9/angular.min.js"></script>
