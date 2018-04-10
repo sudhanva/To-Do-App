@@ -20,9 +20,9 @@
 		<input type="text" name="" style="display:block;margin:0 auto;padding: 5px;font-size: 15px; width: 300px;" ng-keyup="searchEnter()" ng-model="task">
 		<div id="taskToShow">
 			<ul >
-				<li ng-repeat="onetask in tasks">
+				<li ng-repeat="onetask in tasks track by $index">
 					<input type="checkbox" ng-model="onetask.status">
-					<span contenteditable="false" ng-dblclick= "edit()" ng-keydown="enterAgain(onetask.taskMessage)"ng-model="onetask.taskMessage" class="{{onetask.status}}">{{ onetask.taskMessage }}</span>
+					<span contenteditable="false" ng-dblclick= "edit(onetask.taskMessage)" ng-keydown="enterAgain(onetask.taskMessage)"ng-model="onetask.taskMessage" class="{{onetask.status}}">{{ onetask.taskMessage }}</span>
 					<input type="text" hidden>
 				</li>
 			</ul>
